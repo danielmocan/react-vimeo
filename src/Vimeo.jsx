@@ -52,6 +52,7 @@ function post(method, value, player, playerOrigin) {
 class Vimeo extends Component {
 
   constructor() {
+    super();
     this.state = {
       imageLoaded: false,
       playerOrigin: '*',
