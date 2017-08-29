@@ -278,6 +278,8 @@ class Vimeo extends Component {
   }
 }
 
+export default Vimeo;
+
 Vimeo.propTypes = {
   autoplay: PropTypes.bool,
   className: PropTypes.string,
