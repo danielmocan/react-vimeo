@@ -51,12 +51,12 @@ function post(method, value, player, playerOrigin) {
 
 class Vimeo extends Component {
 
-  constructor() {
-    super();
+  constructor( props ) {
+    super( props );
     this.state = {
       imageLoaded: false,
       playerOrigin: '*',
-      showingVideo: this.props.autoplay,
+      showingVideo: props.autoplay,
       thumb: null
     };
   }
