@@ -14,7 +14,7 @@ const PlayButton = ({ onClick } ) => ( <button
         </svg>
       </button> );
 
-PlayButton.PropTypes = {
+PlayButton.propTypes = {
   onClick: PropTypes.func
 };
 
