@@ -59,6 +59,16 @@ class Vimeo extends Component {
       showingVideo: props.autoplay,
       thumb: null
     };
+    this.addMessageListener = this.addMessageListener.bind( this );
+    this.onError = this.onError.bind( this );
+    this.onMessage = this.onMessage.bind( this );
+    this.onReady = this.onReady.bind( this );
+    this.playVideo = this.playVideo.bind( this );
+    this.getIframeUrl = this.getIframeUrl.bind( this );
+    this.getIframeUrlQuery = this.getIframeUrlQuery.bind( this );
+    this.fetchVimeoData = this.fetchVimeoData.bind( this );
+    this.renderIframe = this.renderIframe.bind( this );
+    this.renderImage = this.renderImage.bind( this );
   }
 
   componentWillReceiveProps(nextProps) {
