@@ -22,6 +22,16 @@ const playerEvents = keyMirror({
   volumeChange: null
 });
 
+const defaults = Object.keys(playerEvents)
+      .concat(['ready'])
+      .reduce((defaults, event) => {
+        defaults['on' + capitalize(event)] = noop;
+        return defaults;
+      }, {});
+defaults.className = 'vimeo';
+defaults.playerOptions = { autoplay: 1 };
+defaults.autoplay = false;
+
 function capitalize(str = '') {
   return str.charAt(0).toUpperCase() + str.substring(1);
 }
@@ -41,22 +51,8 @@ function post(method, value, player, playerOrigin) {
 
 class Vimeo extends Component {
 
-  getDefaultProps() {
-    const defaults = Object.keys(playerEvents)
-      .concat(['ready'])
-      .reduce((defaults, event) => {
-        defaults['on' + capitalize(event)] = noop;
-        return defaults;
-      }, {});
-
-    defaults.className = 'vimeo';
-    defaults.playerOptions = { autoplay: 1 };
-    defaults.autoplay = false;
-    return defaults;
-  }
-
-  getInitialState() {
-    return {
+  constructor() {
+    this.state = {
       imageLoaded: false,
       playerOrigin: '*',
       showingVideo: this.props.autoplay,
@@ -279,6 +275,8 @@ class Vimeo extends Component {
 }
 
 export default Vimeo;
+
+Vimeo.defaultProps = defaults;
 
 Vimeo.propTypes = {
   autoplay: PropTypes.bool,
