@@ -175,7 +175,7 @@ class Vimeo extends Component {
   getIframeUrl() {
     const { videoId } = this.props;
     const query = this.getIframeUrlQuery();
-    return `https://player.vimeo.com/video/${videoId}?${query}`;
+    return `//player.vimeo.com/video/${videoId}?${query}`;
   }
 
   getIframeUrlQuery() {
@@ -194,7 +194,7 @@ class Vimeo extends Component {
     const id = this.props.videoId;
 
     jsonp(
-      `//vimeo.com/api/v2/video/${id}.json`,
+      `https://vimeo.com/api/v2/video/${id}.json`,
       {
         prefix: 'vimeo'
       },
